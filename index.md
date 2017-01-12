@@ -70,6 +70,7 @@ Below are the properties available for the plugin:
 ## Default Output:
 
 If no extraTemplate is provided, below is the output that you should be getting:
+
 ```
 ── your_project_name
     ├── README.md
