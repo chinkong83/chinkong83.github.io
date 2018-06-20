@@ -1,0 +1,1705 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "The community API",
+        "version": "1"
+    },
+    "basePath": "/api/community/v1",
+    "schemes": [],
+    "paths": {
+        "/categories": {
+            "get": {
+                "tags": [
+                    "CategoriesResponse"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "ranking",
+                        "in": "query",
+                        "type": "string",
+                        "description": "TODO: ranking: editor/latest/ give a default ranking?",
+                        "required": false
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/CategoriesResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Category"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                }
+            }
+        },
+        "/categories/{categoryId}": {
+            "delete": {
+                "tags": [
+                    "Category"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Category"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        }
+                    }
+                }
+            }
+        },
+        "/contents": {
+            "get": {
+                "tags": [
+                    "ContentsResponse"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "stream",
+                        "in": "query",
+                        "type": "boolean",
+                        "description": "TODO: define exp type, what should be in query and what should in path TODO: all query supports region \u0026 lang stream=true 時才顯示more",
+                        "required": false
+                    },
+                    {
+                        "name": "ranking",
+                        "in": "query",
+                        "type": "string",
+                        "description": "give a default ranking",
+                        "required": false
+                    },
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "type": "string",
+                        "description": "TODO: can be \"me\"",
+                        "required": false
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "type": "string",
+                        "description": "comma separated ids",
+                        "required": false
+                    },
+                    {
+                        "name": "entityId",
+                        "in": "query",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "name": "types",
+                        "in": "query",
+                        "type": "string",
+                        "description": "comma separated types (image/video ...)",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ContentsResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/creators": {
+            "post": {
+                "tags": [
+                    "Creator"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Creator"
+                        }
+                    }
+                }
+            }
+        },
+        "/creators/{creatorId}": {
+            "get": {
+                "tags": [
+                    "Creator"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "creatorId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Creator"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Creator"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "creatorId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Creator"
+                        }
+                    }
+                }
+            }
+        },
+        "/entities": {
+            "get": {
+                "tags": [
+                    "EntitiesResponse"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "ranking",
+                        "in": "query",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "name": "categories",
+                        "in": "query",
+                        "type": "string",
+                        "description": "comma separated list",
+                        "required": false
+                    },
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "type": "string",
+                        "description": "following entities",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/EntitiesResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Entity"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    }
+                }
+            }
+        },
+        "/entities/alias/{aliasId}": {
+            "get": {
+                "tags": [
+                    "Entity"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "aliasId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    }
+                }
+            }
+        },
+        "/entities/{entityId}": {
+            "get": {
+                "tags": [
+                    "Entity"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Entity"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    }
+                }
+            }
+        },
+        "/entities/{entityId}/contents": {
+            "post": {
+                "tags": [
+                    "Content"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Content"
+                        }
+                    }
+                }
+            }
+        },
+        "/entities/{entityId}/contents/{contentId}": {
+            "delete": {
+                "tags": [
+                    "Content"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "contentId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Content"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Content"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "entityId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "contentId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Content"
+                        }
+                    }
+                }
+            }
+        },
+        "/permission/assertions": {
+            "get": {
+                "tags": [
+                    "Assertion"
+                ],
+                "summary": "Policy evaluation rule: Default deny, deny overwrites allow.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "query",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "resource",
+                        "in": "query",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "action",
+                        "in": "query",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Assertion"
+                        }
+                    }
+                }
+            }
+        },
+        "/permission/domains": {
+            "get": {
+                "tags": [
+                    "DomainsResponse"
+                ],
+                "summary": "List available domains",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DomainsResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/permission/policies": {
+            "get": {
+                "tags": [
+                    "PoliciesResponse"
+                ],
+                "summary": "List policies API",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "domain",
+                        "in": "query",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "user",
+                        "in": "query",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "name": "resource",
+                        "in": "query",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "name": "action",
+                        "in": "query",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PoliciesResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Policy"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Policy"
+                        }
+                    }
+                }
+            }
+        },
+        "/permission/policies/{policyId}": {
+            "delete": {
+                "tags": [
+                    "Policy"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "policyId",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Policy"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Article": {
+            "properties": {
+                "author_name": {
+                    "type": "string",
+                    "example": ""
+                },
+                "main_image": {
+                    "$ref": "#/definitions/Image"
+                },
+                "published_at": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "TODO: epoch, but should use ISO8601",
+                    "example": 0
+                },
+                "publisher": {
+                    "type": "string",
+                    "example": ""
+                },
+                "summary": {
+                    "type": "string",
+                    "example": ""
+                },
+                "title": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "title",
+                "summary",
+                "publisher",
+                "published_at",
+                "main_image",
+                "author_name"
+            ]
+        },
+        "Assertion": {
+            "properties": {
+                "result": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "result"
+            ]
+        },
+        "CanvassAuthor": {
+            "properties": {
+                "guid": {
+                    "type": "string",
+                    "example": ""
+                },
+                "nickname": {
+                    "type": "string",
+                    "example": ""
+                },
+                "thumbnail": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "guid",
+                "nickname",
+                "thumbnail"
+            ],
+            "description": "TODO: note, this output is not adjustable because it's from canvass.. might need work with frontend sdk but this might be able to adjust in the output format."
+        },
+        "CanvassComment": {
+            "properties": {
+                "author": {
+                    "$ref": "#/definitions/CanvassAuthor"
+                },
+                "created_at": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "epoch timestamp",
+                    "example": 0
+                },
+                "text_message": {
+                    "type": "string",
+                    "example": ""
+                },
+                "updated_at": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "required": [
+                "author",
+                "created_at",
+                "updated_at",
+                "text_message"
+            ]
+        },
+        "CanvassInfo": {
+            "properties": {
+                "comments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CanvassComment"
+                    }
+                },
+                "context_id": {
+                    "type": "string",
+                    "description": "uuid",
+                    "example": ""
+                },
+                "namespace": {
+                    "type": "string",
+                    "example": ""
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "required": [
+                "namespace",
+                "context_id",
+                "total",
+                "comments"
+            ]
+        },
+        "CategoriesResponse": {
+            "properties": {
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Category"
+                    }
+                },
+                "count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "offset": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "resultTotal": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "required": [
+                "offset",
+                "resultTotal",
+                "count",
+                "categories"
+            ]
+        },
+        "Category": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "example": ""
+                },
+                "id": {
+                    "type": "string",
+                    "example": ""
+                },
+                "name": {
+                    "type": "string",
+                    "example": ""
+                },
+                "status": {
+                    "type": "boolean",
+                    "description": "TODO: category status is bool? will there be more status in the future? if no, change this to more specific name.",
+                    "example": false
+                },
+                "thumbnail": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "thumbnail",
+                "description",
+                "status"
+            ],
+            "description": "TODO: 1. endpoint path adjust 2. timestamp should use ISO 8601 3. naming convention: total -\u003e resultsTotal field name use camelCase"
+        },
+        "Content": {
+            "properties": {
+                "article": {
+                    "$ref": "#/definitions/Article"
+                },
+                "canvassInfo": {
+                    "$ref": "#/definitions/CanvassInfo"
+                },
+                "canvass_info": {
+                    "type": "string",
+                    "example": ""
+                },
+                "curateInfo": {
+                    "description": "TODO: rename from curated_from to CurateRecord",
+                    "$ref": "#/definitions/CurateInfo"
+                },
+                "id": {
+                    "type": "string",
+                    "example": ""
+                },
+                "imageMessage": {
+                    "$ref": "#/definitions/ImageMessage"
+                },
+                "link": {
+                    "type": "string",
+                    "example": ""
+                },
+                "outlinkMessage": {
+                    "$ref": "#/definitions/OutlinkMessage"
+                },
+                "slideshow": {
+                    "$ref": "#/definitions/Slideshow"
+                },
+                "smartContent": {
+                    "$ref": "#/definitions/SmartContent"
+                },
+                "source": {
+                    "type": "string",
+                    "example": ""
+                },
+                "textMessage": {
+                    "$ref": "#/definitions/TextMessage"
+                },
+                "type": {
+                    "$ref": "#/definitions/ContentType"
+                },
+                "video": {
+                    "$ref": "#/definitions/Video"
+                },
+                "youcard": {
+                    "$ref": "#/definitions/Youcard"
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "source",
+                "canvass_info",
+                "link",
+                "curateInfo",
+                "canvassInfo"
+            ]
+        },
+        "ContentIndex": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "UUID",
+                    "example": ""
+                },
+                "source": {
+                    "$ref": "#/definitions/Source"
+                },
+                "type": {
+                    "$ref": "#/definitions/ContentType"
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "source"
+            ]
+        },
+        "ContentList": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "items": {
+                    "type": "array",
+                    "description": "TODO: contents",
+                    "items": {
+                        "$ref": "#/definitions/Content"
+                    }
+                },
+                "more": {
+                    "type": "array",
+                    "description": "TODO: more可改名 contentsIndexs, result這層可以不需要, https://docs.google.com/document/d/14MX71kEeBGrFWEvH9prFVF3kSW5DN4OanDU7OPHMzC0/edit#heading=h.qsigvfcf2hpv",
+                    "items": {
+                        "$ref": "#/definitions/ContentIndex"
+                    }
+                },
+                "nextOffset": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "offset": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "resultsTotal": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "required": [
+                "count",
+                "resultsTotal",
+                "offset",
+                "nextOffset",
+                "items",
+                "more"
+            ],
+            "description": "merge ContentStream \u0026 ContentList"
+        },
+        "ContentType": {
+            "type": "string",
+            "enum": [
+                "TEXT_MESSAGE",
+                "IMAGE_MESSAGE",
+                "OUTLINK_MESSAGE",
+                "ARTICLE",
+                "VIDEO",
+                "SMART_CONTENT",
+                "PK",
+                "POLLS",
+                "RAFFLE_EVENT",
+                "YOUCARD",
+                "SLIDESHOW"
+            ]
+        },
+        "ContentsResponse": {
+            "properties": {
+                "contents": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Content"
+                    }
+                },
+                "count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "more": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContentIndex"
+                    }
+                },
+                "offset": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "resultTotal": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "required": [
+                "offset",
+                "resultTotal",
+                "count",
+                "contents"
+            ]
+        },
+        "Creator": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "example": ""
+                },
+                "entityIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "example": ""
+                    }
+                },
+                "guid": {
+                    "type": "string",
+                    "example": ""
+                },
+                "nickname": {
+                    "type": "string",
+                    "example": ""
+                },
+                "status": {
+                    "$ref": "#/definitions/CreatorStatus"
+                }
+            },
+            "required": [
+                "guid",
+                "description",
+                "nickname",
+                "entityIds",
+                "status"
+            ]
+        },
+        "CreatorStatus": {
+            "type": "string",
+            "enum": [
+                "PENDING",
+                "REVIEWING",
+                "APPROVED",
+                "REJECT"
+            ]
+        },
+        "CurateInfo": {
+            "properties": {
+                "creatr_id": {
+                    "type": "string",
+                    "description": "TODO: creatr? typo?",
+                    "example": ""
+                },
+                "entity_id": {
+                    "type": "string",
+                    "example": ""
+                },
+                "name": {
+                    "type": "string",
+                    "example": ""
+                },
+                "reason": {
+                    "type": "string",
+                    "example": ""
+                },
+                "thumbnail": {
+                    "type": "string",
+                    "description": "image url",
+                    "example": ""
+                }
+            },
+            "required": [
+                "creatr_id",
+                "entity_id",
+                "reason",
+                "name",
+                "thumbnail"
+            ]
+        },
+        "DomainsResponse": {
+            "properties": {
+                "domains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "example": ""
+                    }
+                }
+            },
+            "required": [
+                "domains"
+            ]
+        },
+        "EntitiesResponse": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "entities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Entity"
+                    }
+                },
+                "offset": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "resultTotal": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "required": [
+                "offset",
+                "resultTotal",
+                "count",
+                "entities"
+            ]
+        },
+        "Entity": {
+            "properties": {
+                "category_name": {
+                    "type": "array",
+                    "description": "TODO: should be plural",
+                    "items": {
+                        "type": "string",
+                        "example": ""
+                    }
+                },
+                "entity_token": {
+                    "type": "string",
+                    "example": ""
+                },
+                "following_count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "id": {
+                    "type": "string",
+                    "example": ""
+                },
+                "is_followed": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "is_live": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "is_subscribed": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "link": {
+                    "type": "string",
+                    "example": ""
+                },
+                "name": {
+                    "type": "string",
+                    "example": ""
+                },
+                "thumbnail": {
+                    "type": "string",
+                    "example": ""
+                },
+                "type": {
+                    "$ref": "#/definitions/EntityType"
+                },
+                "unseen_count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "thumbnail",
+                "type",
+                "entity_token",
+                "link",
+                "category_name",
+                "following_count",
+                "unseen_count",
+                "is_live",
+                "is_followed",
+                "is_subscribed"
+            ],
+            "description": "TODO: content_stream_info or following_status 是否需要?"
+        },
+        "EntityConfig": {
+            "description": "TODO: entity config discussion, can we merge this into entity?"
+        },
+        "EntityPage": {
+            "properties": {
+                "Content": {
+                    "type": "array"
+                },
+                "entity": {
+                    "$ref": "#/definitions/Entity"
+                }
+            },
+            "required": [
+                "entity",
+                "Content"
+            ]
+        },
+        "EntityType": {
+            "type": "string",
+            "enum": [
+                "TV_CHANNEL",
+                "UCARD_AUTHOR",
+                "CONTENT_PROVIDER",
+                "CAP_TERM",
+                "NEWS_TOPIC",
+                "BLOG_AUTHOR",
+                "ESPORTS_TOURNAMENT"
+            ]
+        },
+        "Image": {
+            "properties": {
+                "original_height": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "original_url": {
+                    "type": "string",
+                    "example": ""
+                },
+                "original_width": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "resolutions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ImageResolution"
+                    }
+                }
+            },
+            "required": [
+                "original_url",
+                "original_height",
+                "original_width",
+                "resolutions"
+            ]
+        },
+        "ImageMessage": {
+            "properties": {
+                "image": {
+                    "$ref": "#/definitions/Image"
+                },
+                "image_attribution": {
+                    "type": "string",
+                    "description": "TODO: what is image attribution",
+                    "example": ""
+                },
+                "text_message": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "text_message",
+                "image",
+                "image_attribution"
+            ]
+        },
+        "ImageResolution": {
+            "properties": {
+                "height": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "TODO: tags?",
+                    "example": ""
+                },
+                "url": {
+                    "type": "string",
+                    "example": ""
+                },
+                "width": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "required": [
+                "url",
+                "height",
+                "width",
+                "tag"
+            ]
+        },
+        "OutlinkMessage": {
+            "properties": {
+                "image_attribution": {
+                    "type": "string",
+                    "description": "TODO: what is image attribution definition",
+                    "example": ""
+                },
+                "outlink": {
+                    "type": "string",
+                    "example": ""
+                },
+                "outlink_description": {
+                    "type": "string",
+                    "example": ""
+                },
+                "outlink_image": {
+                    "$ref": "#/definitions/Image"
+                },
+                "outlink_title": {
+                    "type": "string",
+                    "example": ""
+                },
+                "text_message": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "text_message",
+                "outlink",
+                "outlink_title",
+                "outlink_description",
+                "outlink_image",
+                "image_attribution"
+            ]
+        },
+        "ParsecErrorBody": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "detail": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ParsecErrorDetail"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "message"
+            ]
+        },
+        "ParsecErrorDetail": {
+            "properties": {
+                "invalidValue": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "message"
+            ]
+        },
+        "ParsecResourceError": {
+            "properties": {
+                "error": {
+                    "$ref": "#/definitions/ParsecErrorBody"
+                }
+            },
+            "required": [
+                "error"
+            ]
+        },
+        "Participant": {
+            "properties": {
+                "guid": {
+                    "type": "string",
+                    "example": ""
+                },
+                "nickname": {
+                    "type": "string",
+                    "example": ""
+                },
+                "thumbnail": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "guid",
+                "nickname",
+                "thumbnail"
+            ]
+        },
+        "PoliciesResponse": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "offset": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Policy"
+                    }
+                },
+                "resultTotal": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                }
+            },
+            "required": [
+                "offset",
+                "resultTotal",
+                "count",
+                "policies"
+            ]
+        },
+        "Policy": {
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "description": "e.g. read/write",
+                    "example": ""
+                },
+                "domain": {
+                    "type": "string",
+                    "example": ""
+                },
+                "effect": {
+                    "$ref": "#/definitions/PolicyEffect"
+                },
+                "id": {
+                    "type": "string",
+                    "example": ""
+                },
+                "resource": {
+                    "type": "string",
+                    "description": "TODO: give resource an URI, support wildcard as well",
+                    "example": ""
+                },
+                "userId": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "id",
+                "domain",
+                "userId",
+                "effect",
+                "action",
+                "resource"
+            ],
+            "description": "TODO: if we need RBAC, just add additional layer."
+        },
+        "PolicyEffect": {
+            "type": "string",
+            "enum": [
+                "ALLOW",
+                "DENY"
+            ]
+        },
+        "ResourceError": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "code",
+                "message"
+            ]
+        },
+        "Slideshow": {
+            "properties": {
+                "main_image": {
+                    "$ref": "#/definitions/Image"
+                },
+                "published_at": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "TODO: timestamp should be ISO8601",
+                    "example": 0
+                },
+                "publisher": {
+                    "type": "string",
+                    "example": ""
+                },
+                "slideshow": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Image"
+                    }
+                },
+                "slideshow_count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "TODO: image counts?",
+                    "example": 0
+                },
+                "title": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "title",
+                "publisher",
+                "published_at",
+                "main_image",
+                "slideshow_count",
+                "slideshow"
+            ]
+        },
+        "SmartContent": {
+            "properties": {
+                "ended_at": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "main_image": {
+                    "$ref": "#/definitions/Image"
+                },
+                "participants": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Participant"
+                    }
+                },
+                "participants_count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "TODO: original design was a participant info object, flatten here",
+                    "example": 0
+                },
+                "started_at": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "TODO: timestamp should be ISO8601",
+                    "example": 0
+                },
+                "title": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "title",
+                "main_image",
+                "started_at",
+                "ended_at",
+                "participants_count",
+                "participants"
+            ]
+        },
+        "Source": {
+            "type": "string",
+            "enum": [
+                "CA",
+                "SMARTR",
+                "CREATR_MESSAGE"
+            ]
+        },
+        "TextMessage": {
+            "properties": {
+                "text_message": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "text_message"
+            ]
+        },
+        "Video": {
+            "properties": {
+                "aspect": {
+                    "type": "string",
+                    "description": "123x234",
+                    "example": ""
+                },
+                "duration": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "live_state": {
+                    "type": "string",
+                    "description": "TODO: define live state, should be enum",
+                    "example": ""
+                },
+                "main_image": {
+                    "$ref": "#/definitions/Image"
+                },
+                "playcontext": {
+                    "type": "string",
+                    "example": ""
+                },
+                "published_at": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "TODO: epoch, but should use ISO8601",
+                    "example": 0
+                },
+                "publisher": {
+                    "type": "string",
+                    "example": ""
+                },
+                "scheduled_time": {
+                    "type": "string",
+                    "description": "TODO: timestamp should be ISO8601",
+                    "example": ""
+                },
+                "title": {
+                    "type": "string",
+                    "example": ""
+                },
+                "view_count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "TODO: why only video has view count, other types don't?",
+                    "example": 0
+                }
+            },
+            "required": [
+                "title",
+                "publisher",
+                "published_at",
+                "main_image",
+                "duration",
+                "aspect",
+                "live_state",
+                "scheduled_time",
+                "playcontext",
+                "view_count"
+            ]
+        },
+        "Youcard": {
+            "properties": {
+                "published_at": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "TODO: timestamp should be ISO8601",
+                    "example": 0
+                },
+                "publisher": {
+                    "type": "string",
+                    "example": ""
+                },
+                "summary": {
+                    "type": "string",
+                    "example": ""
+                },
+                "title": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "title",
+                "summary",
+                "publisher",
+                "published_at"
+            ]
+        }
+    }
+}
